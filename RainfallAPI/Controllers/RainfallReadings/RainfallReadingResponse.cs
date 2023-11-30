@@ -18,9 +18,14 @@ namespace RainfallAPI.Controllers.RainfallReadings
 
         // GET: api/<RainfallReadings>
         [HttpGet("{stationId}")]
-        public async Task<Models.RainfallReadings.RainfallReadingResponse> Get(string stationId)
+        public async Task<ActionResult<Models.RainfallReadings.RainfallReadingResponse>> Get(string stationId)
         {
             var result = await GetStationReadingsFromSorted(stationId);
+
+            if(result.Readings.Count == 0)
+            {
+                return NotFound();
+            }
             return result;
         }
 
@@ -74,29 +79,5 @@ namespace RainfallAPI.Controllers.RainfallReadings
                 throw;
             }
         }
-        //// GET api/<RainfallReadings>/5
-        //[HttpGet("{id}")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
-
-        //// POST api/<RainfallReadings>
-        //[HttpPost]
-        //public void Post([FromBody] string value)
-        //{
-        //}
-
-        //// PUT api/<RainfallReadings>/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] string value)
-        //{
-        //}
-
-        //// DELETE api/<RainfallReadings>/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
     }
 }
