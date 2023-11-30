@@ -18,9 +18,14 @@ namespace RainfallAPI.Controllers.RainfallReadings
 
         // GET: api/<RainfallReadings>
         [HttpGet("{stationId}")]
-        public async Task<Models.RainfallReadings.RainfallReadingResponse> Get(string stationId)
+        public async Task<ActionResult<Models.RainfallReadings.RainfallReadingResponse>> Get(string stationId)
         {
             var result = await GetStationReadingsFromSorted(stationId);
+
+            if(result.Readings.Count == 0)
+            {
+                return NotFound();
+            }
             return result;
         }
 
