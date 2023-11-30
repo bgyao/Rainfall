@@ -33,3 +33,5 @@ C:\Users\yaobr\Documents\GitHub\Rainfall\RainfallAPI\obj\Debug\net8.0\refint\Rai
 C:\Users\yaobr\Documents\GitHub\Rainfall\RainfallAPI\obj\Debug\net8.0\RainfallAPI.pdb
 C:\Users\yaobr\Documents\GitHub\Rainfall\RainfallAPI\obj\Debug\net8.0\RainfallAPI.genruntimeconfig.cache
 C:\Users\yaobr\Documents\GitHub\Rainfall\RainfallAPI\obj\Debug\net8.0\ref\RainfallAPI.dll
+C:\Users\yaobr\Documents\GitHub\Rainfall\RainfallAPI\obj\Debug\net8.0\RainfallAPI.sourcelink.json
+C:\Users\yaobr\Documents\GitHub\Rainfall\RainfallAPI\bin\Debug\net8.0\Newtonsoft.Json.dll
