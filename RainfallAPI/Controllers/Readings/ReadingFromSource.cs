@@ -2,13 +2,8 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RainfallAPI.Models.RainfallReadings;
-using RainfallAPI.Models.Readings;
 using RainfallAPI.Models.Readings.ResponseHandler;
 using RainfallAPI.Models.Readings.ResponseHandler.Components.Metas;
-using System.Text.Json;
-using System.Text.Json.Nodes;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace RainfallAPI.Controllers.Readings
 {
@@ -46,9 +41,6 @@ namespace RainfallAPI.Controllers.Readings
             {
                 JObject jsonObject = JsonConvert.DeserializeObject<JObject>(responseMessage);
 
-                //var jsonObject = JObject.Parse(responseMessage);
-                //JsonElement data = jsonValues.RootElement;
-
                 #region Parse Meta.HasFormat values
                 var meta = JsonConvert.DeserializeObject<JObject>(jsonObject["meta"].ToString());
                 var metaFormats = meta["hasFormat"].ToArray();
@@ -66,8 +58,6 @@ namespace RainfallAPI.Controllers.Readings
                 #endregion
 
                 #region Convert JSON Property Items
-                // NOTE: "items" is in itself a List of objects. Error is occurring here.
-
                 List<RainfallReadingFromSource> readings = new List<RainfallReadingFromSource>();
                 foreach (var item in jsonObject["items"])
                 {
@@ -111,32 +101,5 @@ namespace RainfallAPI.Controllers.Readings
                 throw;
             }
         }
-
-        #region Not in use
-        // GET: api/<Reading>
-        //[HttpGet]
-        //public IEnumerable<string> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
-
-        //// POST api/<Reading>
-        //[HttpPost]
-        //public void Post([FromBody] string value)
-        //{
-        //}
-
-        //// PUT api/<Reading>/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] string value)
-        //{
-        //}
-
-        //// DELETE api/<Reading>/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
-        #endregion
     }
 }
