@@ -1,6 +1,6 @@
 ﻿using RainfallAPI.Models.Readings;
 
-namespace RainfallAPI.Models.RainfallReadingResponses;
+namespace RainfallAPI.Models.RainfallReadings;
 
 public class RainfallReadingResponse
 {
