@@ -4,5 +4,5 @@ namespace RainfallAPI.Models.RainfallReadings;
 
 public class RainfallReadingResponse
 {
-    public List<Reading> Readings { get; set; }
+    public List<RainfallReading> Readings { get; set; }
 }
