@@ -5,12 +5,15 @@ using RainfallAPI.Controllers.Readings;
 using RainfallAPI.Models.RainfallReadings;
 using RainfallAPI.Models.Readings.ResponseHandler;
 using RainfallAPI.Models.Readings.ResponseHandler.Components.Metas;
+using System.Net;
+using System.Web.Http;
+using HttpGetAttribute = Microsoft.AspNetCore.Mvc.HttpGetAttribute;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace RainfallAPI.Controllers.RainfallReadings
 {
-    [Route("api/[controller]")]
+    [System.Web.Http.Route("api/[controller]")]
     [ApiController]
     public class RainfallReadingResponse : ControllerBase
     {
@@ -24,7 +27,7 @@ namespace RainfallAPI.Controllers.RainfallReadings
 
             if(result.Readings.Count == 0)
             {
-                return NotFound();
+                throw new HttpResponseException(HttpStatusCode.NotFound);
             }
             return result;
         }
