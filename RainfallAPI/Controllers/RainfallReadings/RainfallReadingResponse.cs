@@ -20,6 +20,7 @@ namespace RainfallAPI.Controllers.RainfallReadings
         private static string _address = "http://environment.data.gov.uk/flood-monitoring/id/stations/";
 
         // GET: api/<RainfallReadings>
+        [System.Web.Http.Route("/rainfall/id/{stationId:string}/readings")]
         [HttpGet("{stationId}")]
         public async Task<ActionResult<Models.RainfallReadings.RainfallReadingResponse>> Get(string stationId)
         {
@@ -27,6 +28,7 @@ namespace RainfallAPI.Controllers.RainfallReadings
 
             if(result.Readings.Count == 0)
             {
+                return NotFound();
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
             return result;
